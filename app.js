@@ -11,7 +11,9 @@ app.use(bodyParser.urlencoded({extended : true}));
 
 // Connecting to MongoDB
 var mongoose    = require("mongoose"); // added as part of intalling mongoose and connecting to MongoDB for yelpcamp
-mongoose.connect('mongodb://localhost:27017/yelp_camp_v12', { useNewUrlParser: true }); // this creates yelpcamp database in MongoDB 
+//mongoose.connect('mongodb://localhost:27017/yelp_camp_v12', { useNewUrlParser: true }); // this creates yelpcamp database in MongoDB 
+mongoose.connect("mongodb+srv://wnh149dB:149mongoYelp@yelpcampcluster-vkazf.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true });
+
 
 // importing Camground Schema in the models folder using module.exports =  
 var Campground = require("./models/campgrounds.js");
