@@ -95,6 +95,11 @@ app.use(indexRoutes);
 
 
 // SERVER 
-app.listen(3000, function(req,res){
-	console.log("The yelpCamp Server is up");
+// app.listen(3000, function(req,res){
+// 	console.log("The yelpCamp Server is up");
+// });
+
+var port = process.env.PORT || 3000;
+app.listen(port, function () {
+    console.log("YelpCamp server Has Started!");
 });
