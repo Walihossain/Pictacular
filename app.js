@@ -9,10 +9,14 @@ var seedDB = require("./seeds.js");
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({extended : true}));
 
+console.log(process.env.DATABASEURL);
 // Connecting to MongoDB
 var mongoose    = require("mongoose"); // added as part of intalling mongoose and connecting to MongoDB for yelpcamp
-//mongoose.connect('mongodb://localhost:27017/yelp_camp_v12', { useNewUrlParser: true }); // this creates yelpcamp database in MongoDB 
-mongoose.connect("mongodb+srv://wnh149dB:149mongoYelp@yelpcampcluster-vkazf.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true });
+//export DATABASEURL = "'mongodb://localhost:27017/yelp_camp_v12', { useNewUrlParser: true });" comment://this line neeeds to added to the local env using cmd
+//mongoose.connect('mongodb://localhost:27017/yelp_camp_v12', { useNewUrlParser: true });
+mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true });// this creates yelpcamp database in MongoDB Cloud Atlas 
+// DATABASE variable for heroku is saved in the Config Var section of the heroku ui page 
+//mongoose.connect("mongodb+srv://wnh149dB:149mongoYelp@yelpcampcluster-vkazf.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true });
 
 
 // importing Camground Schema in the models folder using module.exports =  
