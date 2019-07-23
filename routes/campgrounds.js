@@ -73,7 +73,7 @@ router.get("/campgrounds/:id", function(req,res){
 				if(err || !foundCampground){
 					req.flash("error","Campground not found");
 					res.redirect("back");
-					console.log(err);
+					//console.log(err);
 				}
 				else{
 					//console.log(foundCampground);
