@@ -25,8 +25,6 @@ mongoose.connect(url, { useNewUrlParser: true });// this creates yelpcamp databa
 //mongoose.connect("mongodb+srv://wnh149dB:149mongoYelp@yelpcampcluster-vkazf.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true });
 
 
-
-
 // importing Camground Schema in the models folder using module.exports =  
 var Campground = require("./models/campgrounds.js");
 
@@ -41,15 +39,10 @@ var flash = require("connect-flash");
 // asking express to use flash 
 app.use(flash());
 
-
-
 // requiring routes - entered after refactoring 
 var campgroundRoutes = 	require("./routes/campgrounds.js");
 var commentRoutes 	 = 	require("./routes/comments.js");
 var indexRoutes 	 = 	require("./routes/index.js");
-
-
-
 
 
 //+++++++++++++++++++++++++++++++++++
@@ -68,7 +61,7 @@ app.use(require("express-session")({
 	resave: false,
 	saveUninitialized: false
 }));
-// The above code app.require express session should be before app.use passport initialize and app.use passport session
+// The above code app.use(require(express-session)) should be before app.use passport initialize and app.use passport session
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new localStrategy(User.authenticate()));
@@ -96,15 +89,10 @@ app.use(express.static(__dirname + "/public"));
 // asking express to use method override 
 app.use(methodOverride("_method"));
 
-
-
-
-
 // The below lines tells express to use the routes, using the router inside the routes dir.  
 app.use(campgroundRoutes);
 app.use(commentRoutes);
 app.use(indexRoutes);
-
 
 // SERVER 
 // app.listen(3000, function(req,res){
