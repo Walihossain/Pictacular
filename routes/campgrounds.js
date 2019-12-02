@@ -13,9 +13,10 @@ router.get("/campgrounds", function(req,res){
 					console.log(err);
 				}
 				else{
-				 	//console.log("Campground retrieved!");
-					//console.log(allcampgrounds);
+				//console.log("Campground retrieved!");
+				//console.log(allcampgrounds);
 				res.render("campgrounds/index", {campgrounds : allcampgrounds, currentUser : req.user});
+				//res.send(allcampgrounds);
 				//console.log(allcampgrounds);	
 				}
 	});

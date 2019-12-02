@@ -1,8 +1,7 @@
 var mongoose = require("mongoose");
 var passportLocalMongoose = require("passport-local-mongoose"); 
 
-// setting up Schemea for taking in user name and password
-
+// setting up Schemea for taking in username and password
 var userSchema = new mongoose.Schema({
 	username: String,
 	password: String
